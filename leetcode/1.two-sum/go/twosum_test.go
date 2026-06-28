@@ -30,6 +30,21 @@ func TestTwoSum(t *testing.T) {
 			target: 6,
 			want:   []int{0, 1},
 		},
+		{
+			nums:   []int{2, 4, 6},
+			target: 22,
+			want:   []int{},
+		},
+		{
+			nums:   []int{},
+			target: 0,
+			want:   []int{},
+		},
+		{
+			nums:   []int{0, 4, 3, 0},
+			target: 0,
+			want:   []int{0, 3},
+		},
 	}
 
 	for _, tc := range cases {
