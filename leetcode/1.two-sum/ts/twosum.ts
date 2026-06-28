@@ -15,7 +15,7 @@ const twoSumOptimized = (nums: number[], target: number): number[] => {
     return [];
 }
 
-// N, 1
+// N2, 1
 const twoSumBruteForce = (nums: number[], target: number): number[] => {
     for (let i = 0; i < nums.length; i++) {
         for (let j = i + 1; j < nums.length; j++) {
