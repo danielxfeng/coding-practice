@@ -1,7 +1,7 @@
 package binarysearch
 
 func search(nums []int, target int) int {
-	return searchBruteForce(nums, target)
+	return searchOptimized(nums, target)
 }
 
 // LogN, LogN
