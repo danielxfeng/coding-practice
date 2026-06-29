@@ -15,6 +15,9 @@ func TestSearch(t *testing.T) {
 	cases := []testCase{
 		{nums: []int{-1, 0, 3, 5, 9, 12}, target: 9, want: 4},
 		{nums: []int{-1, 0, 3, 5, 9, 12}, target: 2, want: -1},
+		{nums: []int{}, target: 0, want: -1},
+		{nums: []int{1}, target: 1, want: 0},
+		{nums: []int{2, 3}, target: 3, want: 1},
 	}
 
 	for _, tc := range cases {
