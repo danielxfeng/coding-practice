@@ -27,25 +27,3 @@ TEST_CASE("TwoSum")
         CHECK(s.twoSum(tc.nums, tc.target) == tc.want);
     }
 }
-
-TEST_CASE("TwoSum: {3, 2, 4}, 6 -> [1, 2]")
-{
-    Solution s;
-
-    std::vector<int> nums{3, 2, 4};
-
-    CHECK(
-        s.twoSum(nums, 6) ==
-        std::vector<int>{1, 2});
-}
-
-TEST_CASE("TwoSum: {3, 3}, 6 -> [0, 1]")
-{
-    Solution s;
-
-    std::vector<int> nums{3, 3};
-
-    CHECK(
-        s.twoSum(nums, 6) ==
-        std::vector<int>{0, 1});
-}
