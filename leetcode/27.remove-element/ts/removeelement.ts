@@ -2,6 +2,7 @@ const removeElement = (nums: number[], val: number): number => {
     return removeElementOptimized(nums, val);
 };
 
+// N, 1
 const removeElementOptimized = (nums: number[], val: number): number => {
     let s = 0
 
