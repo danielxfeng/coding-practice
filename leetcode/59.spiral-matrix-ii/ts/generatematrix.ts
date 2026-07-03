@@ -1,4 +1,4 @@
-// N, 1
+// N2, 1
 const generateMatrix = (n: number): number[][] => {
     const matrix: number[][] = Array.from({ length: n }, () => new Array(n))
 
@@ -7,21 +7,17 @@ const generateMatrix = (n: number): number[][] => {
     for (let i = 0; i < mid; i++) {
         const last = n - i - 1
 
-        for (let j = i; j < last; j++) {
+        for (let j = i; j < last; j++)
             matrix[i][j] = num++
-        }
 
-        for (let j = i; j < last; j++) {
+        for (let j = i; j < last; j++)
             matrix[j][last] = num++
-        }
 
-        for (let j = last; j > i; j--) {
+        for (let j = last; j > i; j--)
             matrix[last][j] = num++
-        }
 
-        for (let j = last; j > i; j--) {
+        for (let j = last; j > i; j--)
             matrix[j][i] = num++
-        }
     }
 
     if (n % 2 == 1) {

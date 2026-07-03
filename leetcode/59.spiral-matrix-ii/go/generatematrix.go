@@ -1,6 +1,6 @@
 package generatematrix
 
-// N, 1
+// N2, 1
 func generateMatrix(n int) [][]int {
 	matrix := make([][]int, n)
 	for i := range n {
