@@ -7,6 +7,7 @@ export class ListNode {
     }
 }
 
+// N, 1
 const swapPairs = (head: ListNode | null): ListNode | null => {
     const dummy = new ListNode(0, head)
 
