@@ -40,9 +40,10 @@ func equalLists(l1 *ListNode, l2 *ListNode) bool {
 
 func TestSwapPairs(t *testing.T) {
 	tcs := []testcase{
+		{head: buildLinkList(1, 2, 3, 4), want: buildLinkList(2, 1, 4, 3)},
 		{head: buildLinkList(), want: buildLinkList()},
-		{head: buildLinkList(), want: buildLinkList()},
-		{head: buildLinkList(), want: buildLinkList()},
+		{head: buildLinkList(1), want: buildLinkList(1)},
+		{head: buildLinkList(1, 2, 3), want: buildLinkList(2, 1, 3)},
 	}
 
 	for _, tc := range tcs {

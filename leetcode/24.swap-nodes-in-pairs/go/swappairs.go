@@ -5,6 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// N, 1
 func swapPairs(head *ListNode) *ListNode {
 	dummy := ListNode{}
 	dummy.Next = head
