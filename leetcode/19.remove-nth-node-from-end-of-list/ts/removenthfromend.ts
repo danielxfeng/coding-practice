@@ -7,6 +7,7 @@ export class ListNode {
     }
 }
 
+// N, 1
 const removeNthFromEnd = (head: ListNode | null, n: number): ListNode | null => {
     const dummy: ListNode | null = new ListNode(0, head);
 

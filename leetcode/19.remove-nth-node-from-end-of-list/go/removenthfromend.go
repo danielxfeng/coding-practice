@@ -5,34 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func buildLinkList(vals ...int) *ListNode {
-	dummy := &ListNode{}
-	curr := dummy
-
-	for _, v := range vals {
-		curr.Next = &ListNode{Val: v}
-		curr = curr.Next
-	}
-
-	return dummy.Next
-}
-
-func equalLists(l1 *ListNode, l2 *ListNode) bool {
-	if l1 == nil && l2 == nil {
-		return true
-	}
-
-	if l1 == nil || l2 == nil {
-		return false
-	}
-
-	if l1.Val != l2.Val {
-		return false
-	}
-
-	return equalLists(l1.Next, l2.Next)
-}
-
+// N, 1
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	dummy := &ListNode{0, head}
 
