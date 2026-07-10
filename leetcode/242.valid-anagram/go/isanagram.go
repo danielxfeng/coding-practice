@@ -1,6 +1,6 @@
 package validanagram
 
-// N, N
+// N, K
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
