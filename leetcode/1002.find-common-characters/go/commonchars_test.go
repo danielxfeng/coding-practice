@@ -12,7 +12,8 @@ type testcase struct {
 
 func TestCommonChars(t *testing.T) {
 	tcs := []testcase{
-		{words: []string{}, want: []string{}},
+		{words: []string{"bella","label","roller"}, want: []string{"e","l","l"}},
+		{words: []string{"cool","lock","cook"}, want: []string{"c","o"}},
 	}
 
 	for _, tc := range tcs {
