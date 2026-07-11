@@ -1,7 +1,43 @@
 package findcommoncharacters
 
 func commonChars(words []string) []string {
-	return commonCharsBasic(words)
+	return commonCharsOptimized(words)
+}
+
+func commonCharsOptimized(words []string) []string {
+	if len(words) == 0 {
+		return []string{}
+	}
+
+	c := countWord(words[0])
+
+	for _, w := range words[1:] {
+		cl := countWord(w)
+
+		for i := range 26 {
+			c[i] = min(c[i], cl[i])
+		}
+	}
+
+	res := make([]string, 0)
+
+	for i := range 26 {
+		for range c[i] {
+			res = append(res, string(rune('a'+i)))
+		}
+	}
+
+	return res
+}
+
+func countWord(word string) []int {
+	c := make([]int, 26)
+
+	for _, ch := range word {
+		c[(int)(ch-'a')]++
+	}
+
+	return c
 }
 
 func commonCharsBasic(words []string) []string {
