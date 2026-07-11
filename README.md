@@ -98,3 +98,5 @@ Optional VS Code per-test buttons:
 - Install the Vitest extension
 - Extension id: `vitest.explorer`
 - Open the VS Code Testing panel or use the run/debug links for specific tests
+
+![LeetCode Stats](https://leetcard.jacoblin.cool/danielxfeng?theme=dark&font=Inter&ext=heatmap)
