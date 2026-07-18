@@ -4,6 +4,7 @@
 class Solution
 {
 public:
+    // N2, 1
     std::vector<std::vector<int>> threeSum(std::vector<int> &nums)
     {
         std::sort(nums.begin(), nums.end());

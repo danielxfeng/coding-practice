@@ -2,6 +2,7 @@ package threesum
 
 import "sort"
 
+// N2, 1
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 	res := make([][]int, 0)
