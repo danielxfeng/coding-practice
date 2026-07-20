@@ -3,7 +3,26 @@ package reversestr
 import "strings"
 
 func reverseStr(s string, k int) string {
-	return reverseStrBasic(s, k)
+	return reverseStrOptimized(s, k)
+}
+
+func reverseStrOptimized(s string, k int) string {
+	str := []byte(s)
+
+	for i := 0; i < len(str); i += 2 * k {
+		start := i
+		end := min(i+k, len(s)) - 1
+
+		for start < end {
+			temp := str[start]
+			str[start] = str[end]
+			str[end] = temp
+			start++
+			end--
+		}
+	}
+
+	return string(str)
 }
 
 func reverseStrBasic(s string, k int) string {
