@@ -4,7 +4,7 @@ type simpleStack struct {
 	s []rune
 }
 
-func (s *simpleStack) Pop() bool {
+func (s *simpleStack) pop() bool {
 	if len(s.s) == 0 {
 		return false
 	}
@@ -13,7 +13,7 @@ func (s *simpleStack) Pop() bool {
 	return true
 }
 
-func (s *simpleStack) Peak() (rune, bool) {
+func (s *simpleStack) peek() (rune, bool) {
 	if len(s.s) == 0 {
 		return '0', false
 	}
@@ -25,7 +25,7 @@ func (s *simpleStack) isEmpty() bool {
 	return len(s.s) == 0
 }
 
-func (s *simpleStack) Push(v rune) {
+func (s *simpleStack) push(v rune) {
 	s.s = append(s.s, v)
 }
 
@@ -33,12 +33,12 @@ func isValid(s string) bool {
 	stack := simpleStack{}
 
 	for _, v := range s {
-		if prev, ok := stack.Peak(); ok && isMatchedRune(prev, v) {
-			stack.Pop()
+		if prev, ok := stack.peek(); ok && isMatchedRune(prev, v) {
+			stack.pop()
 			continue
 		}
 
-		stack.Push(v)
+		stack.push(v)
 	}
 
 	return stack.isEmpty()

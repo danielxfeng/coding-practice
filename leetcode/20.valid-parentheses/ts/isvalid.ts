@@ -4,7 +4,7 @@ const popStack = (arr: string[]): string[] => {
     return arr.slice(0, arr.length - 1)
 }
 
-const peakStack = (arr: string[]): string | null => {
+const peekStack = (arr: string[]): string | null => {
     if (arr.length === 0) return null
 
     return arr[arr.length - 1]
@@ -23,7 +23,7 @@ const isValid = (s: string): boolean => {
     let stack: string[] = []
 
     for (const c of s) {
-        const prev = peakStack(stack)
+        const prev = peekStack(stack)
         if (prev !== null && isMatched(prev, c)) stack = popStack(stack)
         else pushStack(stack, c)
     }
