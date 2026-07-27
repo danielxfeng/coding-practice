@@ -9,11 +9,12 @@ type testcase struct {
 
 func TestRemoveDuplicates(t *testing.T) {
 	tcs := []testcase{
-		{s: "", want: ""},
+		{s: "abbaca", want: "ca"},
+		{s: "azxxzy", want: "ay"},
 	}
 
 	for _, tc := range tcs {
-		t.Run("removeduplicates", func(t *testing.T){
+		t.Run("removeduplicates", func(t *testing.T) {
 			got := removeDuplicates(tc.s)
 
 			if got != tc.want {
