@@ -39,3 +39,7 @@ func levelOrder(root *TreeNode) [][]int {
 
 	return res
 }
+
+func ExportedLevelOrder(root *TreeNode) [][]int {
+	return levelOrder(root)
+}
