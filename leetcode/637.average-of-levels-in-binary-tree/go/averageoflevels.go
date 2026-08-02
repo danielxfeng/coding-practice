@@ -19,12 +19,12 @@ func averageOfLevels(root *TreeNode) []float64 {
 	for deque.Len() > 0 {
 		size := deque.Len()
 
-		layer := make([]int, size)
+		subtotal := 0.0
 
-		for i := range size {
+		for range size {
 			curr := deque.Remove(deque.Front()).(*TreeNode)
 
-			layer[i] = curr.Val
+			subtotal += float64(curr.Val)
 
 			if curr.Left != nil {
 				deque.PushBack(curr.Left)
@@ -35,13 +35,7 @@ func averageOfLevels(root *TreeNode) []float64 {
 			}
 		}
 
-		avg := 0
-
-		for _, v := range layer {
-			avg += v
-		}
-
-		res = append(res, float64(avg)/float64(len(layer)))
+		res = append(res, subtotal/float64(size))
 	}
 
 	return res
