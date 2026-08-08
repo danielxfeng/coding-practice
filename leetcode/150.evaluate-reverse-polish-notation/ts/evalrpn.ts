@@ -1,7 +1,5 @@
-const popStack = (stack: number[]): number[] => {
-    if (stack.length === 0) return stack
-
-    return stack.slice(0, stack.length - 1)
+const popStack = (stack: number[]): void => {
+    stack.pop()
 }
 
 const peekStack = (stack: number[]): number | null => {
@@ -10,9 +8,8 @@ const peekStack = (stack: number[]): number | null => {
     return stack[stack.length - 1]
 }
 
-const pushStack = (stack: number[], v: number): number[] => {
+const pushStack = (stack: number[], v: number): void => {
     stack.push(v)
-    return stack
 }
 
 const isEmptyStack = (stack: number[]): boolean => {
@@ -20,7 +17,7 @@ const isEmptyStack = (stack: number[]): boolean => {
 }
 
 const evalRPN = (tokens: string[]): number => {
-    let stack: number[] = []
+    const stack: number[] = []
 
     for (const v of tokens) {
         if (["+", "-", "*", "/"].indexOf(v) === -1) {
@@ -32,11 +29,11 @@ const evalRPN = (tokens: string[]): number => {
 
         const n2 = peekStack(stack)
         if (n2 === null) return 0
-        stack = popStack(stack)
+        popStack(stack)
 
         const n1 = peekStack(stack)
         if (n1 === null) return 0
-        stack = popStack(stack)
+        popStack(stack)
 
         let res = 0
 
@@ -61,7 +58,7 @@ const evalRPN = (tokens: string[]): number => {
     }
 
     const res = peekStack(stack)
-    stack = popStack(stack)
+    popStack(stack)
 
     if (res === null || !isEmptyStack(stack)) return 0
 

@@ -1,7 +1,5 @@
-const popStack = (stack: string[]): string[] => {
-    if (stack.length === 0) return stack
-
-    return stack.slice(0, stack.length - 1)
+const popStack = (stack: string[]): void => {
+    stack.pop()
 }
 
 const peekStack = (stack: string[]): string | null => {
@@ -10,9 +8,8 @@ const peekStack = (stack: string[]): string | null => {
     return stack[stack.length - 1]
 }
 
-const pushStack = (stack: string[], v: string): string[] => {
+const pushStack = (stack: string[], v: string): void => {
     stack.push(v)
-    return stack
 }
 
 const isEmptyStack = (stack: string[]): boolean => {
@@ -20,11 +17,11 @@ const isEmptyStack = (stack: string[]): boolean => {
 }
 
 const isValid = (s: string): boolean => {
-    let stack: string[] = []
+    const stack: string[] = []
 
     for (const c of s) {
         const prev = peekStack(stack)
-        if (prev !== null && isMatched(prev, c)) stack = popStack(stack)
+        if (prev !== null && isMatched(prev, c)) popStack(stack)
         else pushStack(stack, c)
     }
 
