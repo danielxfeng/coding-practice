@@ -10,15 +10,15 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 	return traversal(root, targetSum, []int{}, 0)
 }
 
-func traversal(root *TreeNode, targetSum int, path []int, pathSum int) [][]int {
+func traversal(root *TreeNode, targetSum int, path []int, sum int) [][]int {
 	if root == nil {
 		return [][]int{}
 	}
 
-	pathSum += root.Val
+	sum += root.Val
 	path = append(path, root.Val)
 	if root.Left == nil && root.Right == nil {
-		if pathSum == targetSum {
+		if sum == targetSum {
 			res := make([]int, len(path))
 			copy(res, path)
 			return [][]int{res}
@@ -27,8 +27,8 @@ func traversal(root *TreeNode, targetSum int, path []int, pathSum int) [][]int {
 	}
 
 	res := [][]int{}
-	res = append(res, traversal(root.Left, targetSum, path, pathSum)...)
-	res = append(res, traversal(root.Right, targetSum, path, pathSum)...)
+	res = append(res, traversal(root.Left, targetSum, path, sum)...)
+	res = append(res, traversal(root.Right, targetSum, path, sum)...)
 
 	return res
 }

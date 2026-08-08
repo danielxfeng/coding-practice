@@ -13,21 +13,21 @@ const pathSum = (root: TreeNode | null, targetSum: number): number[][] => {
     return traversal(root, targetSum, [], 0)
 }
 
-const traversal = (root: TreeNode | null, targetSum: number, path: number[], pathSum: number): number[][] => {
+const traversal = (root: TreeNode | null, targetSum: number, path: number[], sum: number): number[][] => {
     if (root === null) return []
 
-    pathSum += root.val
+    sum += root.val
     path.push(root.val)
     if (root.left === null && root.right === null) {
-        if (targetSum !== pathSum) return []
+        if (targetSum !== sum) return []
         const res = [...path]
         return [res]
     }
 
     const res: number[][] = []
 
-    res.push(...traversal(root.left, targetSum, [...path], pathSum))
-    res.push(...traversal(root.right, targetSum, [...path], pathSum))
+    res.push(...traversal(root.left, targetSum, [...path], sum))
+    res.push(...traversal(root.right, targetSum, [...path], sum))
     return res
 }
 
