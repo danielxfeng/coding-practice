@@ -1,7 +1,7 @@
 const reverseWords = (s: string): string => {
     const spaceRemoved = resolveSpace(s)
-    const reversedBytes = resolveLine(spaceRemoved)
-    return resolveWords(reversedBytes)
+    resolveLine(spaceRemoved)
+    return resolveWords(spaceRemoved)
 };
 
 const resolveSpace = (s: string): string[] => {
@@ -19,7 +19,7 @@ const resolveSpace = (s: string): string[] => {
     return str.slice(0, idx)
 }
 
-const resolveLine = (s: string[]): string[] => {
+const resolveLine = (s: string[]): void => {
     let start = 0
     let end = s.length - 1
 
@@ -32,7 +32,6 @@ const resolveLine = (s: string[]): string[] => {
         end--
     }
 
-    return s
 }
 
 const resolveWords = (s: string[]): string => {

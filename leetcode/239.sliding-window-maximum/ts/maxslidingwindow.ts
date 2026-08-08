@@ -3,8 +3,6 @@ const pushQueue = (queue: number[], v: number) => {
         queue.pop()
 
     queue.push(v)
-
-    return queue
 }
 
 const popQueue = (queue: number[], v: number) => {
