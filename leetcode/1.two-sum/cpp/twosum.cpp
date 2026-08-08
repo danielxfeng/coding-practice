@@ -13,16 +13,16 @@ private:
     // N, N
     std::vector<int> twoSumOptimized(std::vector<int> &nums, int target)
     {
-        auto m = std::unordered_map<int, int>{};
-        m.reserve(nums.size());
+        auto indexByValue = std::unordered_map<int, int>{};
+        indexByValue.reserve(nums.size());
 
         for (std::size_t i = 0; i < nums.size(); ++i)
         {
-            auto it = m.find(target - nums[i]);
-            if (it != m.end())
+            auto it = indexByValue.find(target - nums[i]);
+            if (it != indexByValue.end())
                 return {it->second, static_cast<int>(i)};
 
-            m[nums[i]] = i;
+            indexByValue[nums[i]] = i;
         }
 
         return {};

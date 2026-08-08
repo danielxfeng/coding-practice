@@ -9,10 +9,10 @@ public:
         if (s.empty())
             return false;
 
-        auto next = getNextArr(s);
+        auto prefixLengths = getNextArr(s);
 
-        bool isLastMatch = next[s.size() - 1] > 0;
-        bool isRemainderMatch = s.size() % (s.size() - next[s.size() - 1]) == 0;
+        bool isLastMatch = prefixLengths[s.size() - 1] > 0;
+        bool isRemainderMatch = s.size() % (s.size() - prefixLengths[s.size() - 1]) == 0;
 
         return isLastMatch && isRemainderMatch;
     }
@@ -20,21 +20,21 @@ public:
 private:
     std::vector<int> getNextArr(std::string s)
     {
-        auto next = std::vector<int>(s.size());
-        next[0] = 0;
+        auto prefixLengths = std::vector<int>(s.size());
+        prefixLengths[0] = 0;
 
         int j = 0;
         for (int i = 1; i < s.size(); ++i)
         {
             while (j > 0 && s[i] != s[j])
-                j = next[j - 1];
+                j = prefixLengths[j - 1];
 
             if (s[i] == s[j])
                 ++j;
 
-            next[i] = j;
+            prefixLengths[i] = j;
         }
 
-        return next;
+        return prefixLengths;
     }
 };

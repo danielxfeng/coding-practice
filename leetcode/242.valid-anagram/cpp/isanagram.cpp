@@ -17,7 +17,7 @@ private:
         if (s.length() != t.length())
             return false;
 
-        std::array<int, 26> arr;
+        std::array<int, 26> arr{};
 
         for (auto c : s)
             arr[dist(c)]++;
@@ -43,15 +43,15 @@ private:
         if (s.length() != t.length())
             return false;
 
-        auto m = std::unordered_map<char, int>{26};
+        auto characterCounts = std::unordered_map<char, int>{26};
 
         for (auto c : s)
-            m[c]++;
+            characterCounts[c]++;
 
         for (auto c : t)
         {
-            m[c]--;
-            if (m[c] < 0)
+            characterCounts[c]--;
+            if (characterCounts[c] < 0)
                 return false;
         }
         return true;

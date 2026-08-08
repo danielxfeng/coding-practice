@@ -6,26 +6,26 @@ func minSubArrayLen(target int, nums []int) int {
 
 // N, 1
 func minSubArrayLenOptimized(target int, nums []int) int {
-	curr := len(nums) + 1
-	sum := 0
-	s := 0
+	minimumLength := len(nums) + 1
+	windowSum := 0
+	windowStart := 0
 
-	for f, v := range nums {
-		sum += v
+	for windowEnd, v := range nums {
+		windowSum += v
 
-		for sum >= target {
-			length := f - s + 1
-			if length < curr {
-				curr = length
+		for windowSum >= target {
+			length := windowEnd - windowStart + 1
+			if length < minimumLength {
+				minimumLength = length
 			}
 
-			sum -= nums[s]
-			s++
+			windowSum -= nums[windowStart]
+			windowStart++
 		}
 	}
 
-	if curr == len(nums)+1 {
+	if minimumLength == len(nums)+1 {
 		return 0
 	}
-	return curr
+	return minimumLength
 }

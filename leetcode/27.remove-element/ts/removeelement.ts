@@ -4,16 +4,16 @@ const removeElement = (nums: number[], val: number): number => {
 
 // N, 1
 const removeElementOptimized = (nums: number[], val: number): number => {
-    let s = 0
+    let nextKeptIndex = 0
 
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] === val) continue
 
-        swap(nums, i, s);
-        s++
+        swap(nums, i, nextKeptIndex);
+        nextKeptIndex++
     }
 
-    return s
+    return nextKeptIndex
 };
 
 const swap = (nums: number[], a: number, b: number) => {

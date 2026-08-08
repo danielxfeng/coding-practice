@@ -10,18 +10,18 @@ type Node struct {
 }
 
 func connect(root *Node) *Node {
-	deque := list.New()
+	queue := list.New()
 
 	if root != nil {
-		deque.PushBack(root)
+		queue.PushBack(root)
 	}
 
-	for deque.Len() > 0 {
-		size := deque.Len()
+	for queue.Len() > 0 {
+		size := queue.Len()
 
 		var prev *Node
 		for i := range size {
-			curr := deque.Remove(deque.Front()).(*Node)
+			curr := queue.Remove(queue.Front()).(*Node)
 
 			if i > 0 {
 				prev.Next = curr
@@ -30,11 +30,11 @@ func connect(root *Node) *Node {
 			prev = curr
 
 			if curr.Left != nil {
-				deque.PushBack(curr.Left)
+				queue.PushBack(curr.Left)
 			}
 
 			if curr.Right != nil {
-				deque.PushBack(curr.Right)
+				queue.PushBack(curr.Right)
 			}
 		}
 	}

@@ -4,7 +4,7 @@ const minSubArrayLen = (target: number, nums: number[]): number => {
 
 // N, 1
 const minSubArrayLenOptimized = (target: number, nums: number[]): number => {
-    let curr = nums.length + 1
+    let minimumLength = nums.length + 1
     let l = 0
     let sum = 0
 
@@ -13,14 +13,14 @@ const minSubArrayLenOptimized = (target: number, nums: number[]): number => {
 
         while (sum >= target) {
             const len = r - l + 1
-            if (len < curr) curr = len
+            if (len < minimumLength) minimumLength = len
 
             sum -= nums[l]
             l++
         }
     }
 
-    return curr === nums.length + 1 ? 0 : curr
+    return minimumLength === nums.length + 1 ? 0 : minimumLength
 };
 
 export default minSubArrayLen

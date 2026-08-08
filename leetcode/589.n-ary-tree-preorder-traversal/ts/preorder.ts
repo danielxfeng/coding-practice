@@ -20,8 +20,8 @@ const travelsal = (root: _Node | null, res: number[]) => {
 
     res.push(root.val)
 
-    for (const n of root.children) {
-        travelsal(n, res)
+    for (const child of root.children) {
+        travelsal(child, res)
     }
 }
 

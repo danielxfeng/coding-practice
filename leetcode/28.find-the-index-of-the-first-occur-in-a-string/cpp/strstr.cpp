@@ -9,13 +9,13 @@ public:
         if (needle.empty())
             return 0;
 
-        auto next = getNextArr(needle);
+        auto prefixLengths = getNextArr(needle);
 
         int j = 0;
         for (int i = 0; i < haystack.size(); ++i)
         {
             while (j > 0 && haystack[i] != needle[j])
-                j = next[j - 1];
+                j = prefixLengths[j - 1];
 
             if (haystack[i] == needle[j])
                 ++j;
@@ -30,21 +30,21 @@ public:
 private:
     std::vector<int> getNextArr(std::string s)
     {
-        std::vector<int> next(s.size());
-        next[0] = 0;
+        std::vector<int> prefixLengths(s.size());
+        prefixLengths[0] = 0;
 
         int j = 0;
-        for (int i = 1; i < next.size(); ++i)
+        for (int i = 1; i < prefixLengths.size(); ++i)
         {
             while (j > 0 && s[i] != s[j])
-                j = next[j - 1];
+                j = prefixLengths[j - 1];
 
             if (s[i] == s[j])
                 ++j;
 
-            next[i] = j;
+            prefixLengths[i] = j;
         }
 
-        return next;
+        return prefixLengths;
     }
 };

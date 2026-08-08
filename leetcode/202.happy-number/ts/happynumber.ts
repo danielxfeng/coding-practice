@@ -1,11 +1,11 @@
 const isHappy = (n: number): boolean => {
-    const s = new Set<number>()
+    const seenNumbers = new Set<number>()
 
     while (true) {
         n = sumSquares(n)
         if (n === 1) return true
-        if (s.has(n)) return false
-        s.add(n)
+        if (seenNumbers.has(n)) return false
+        seenNumbers.add(n)
     }
 
 };

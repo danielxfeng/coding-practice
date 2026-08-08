@@ -10,28 +10,28 @@ type TreeNode struct {
 
 func averageOfLevels(root *TreeNode) []float64 {
 	res := make([]float64, 0)
-	deque := list.New()
+	queue := list.New()
 
 	if root != nil {
-		deque.PushBack(root)
+		queue.PushBack(root)
 	}
 
-	for deque.Len() > 0 {
-		size := deque.Len()
+	for queue.Len() > 0 {
+		size := queue.Len()
 
 		subtotal := 0.0
 
 		for range size {
-			curr := deque.Remove(deque.Front()).(*TreeNode)
+			curr := queue.Remove(queue.Front()).(*TreeNode)
 
 			subtotal += float64(curr.Val)
 
 			if curr.Left != nil {
-				deque.PushBack(curr.Left)
+				queue.PushBack(curr.Left)
 			}
 
 			if curr.Right != nil {
-				deque.PushBack(curr.Right)
+				queue.PushBack(curr.Right)
 			}
 		}
 

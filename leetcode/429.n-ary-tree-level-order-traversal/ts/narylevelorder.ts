@@ -11,22 +11,22 @@ class _Node {
 
 const levelOrder = (root: _Node | null): number[][] => {
     const res: number[][] = []
-    const deque: _Node[] = []
+    const queue: _Node[] = []
     let front = 0
 
-    if (root !== null) deque.push(root)
+    if (root !== null) queue.push(root)
 
-    while (deque.length > front) {
-        const size = deque.length - front
+    while (queue.length > front) {
+        const size = queue.length - front
         const layer: number[] = Array(size)
 
         for (let i = 0; i < size; i++) {
-            const curr = deque[front++]
+            const curr = queue[front++]
 
             layer[i] = curr.val
 
-            for (const n of curr.children)
-                if (n !== null) deque.push(n)
+            for (const child of curr.children)
+                if (child !== null) queue.push(child)
         }
 
         res.push(layer)

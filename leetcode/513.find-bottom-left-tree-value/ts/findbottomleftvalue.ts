@@ -10,21 +10,21 @@ class TreeNode {
 }
 
 const findBottomLeftValue = (root: TreeNode | null): number => {
-    const arr: TreeNode[] = []
+    const queue: TreeNode[] = []
     let front = 0
     let res = 0
 
-    if (root !== null) arr.push(root)
+    if (root !== null) queue.push(root)
 
-    while (arr.length - front > 0) {
-        const size = arr.length - front
+    while (queue.length - front > 0) {
+        const size = queue.length - front
 
         for (let i = 0; i < size; i++) {
-            const curr = arr[front++]
+            const curr = queue[front++]
 
             if (i == 0) res = curr.val
-            if (curr.left !== null) arr.push(curr.left)
-            if (curr.right !== null) arr.push(curr.right)
+            if (curr.left !== null) queue.push(curr.left)
+            if (curr.right !== null) queue.push(curr.right)
         }
     }
 

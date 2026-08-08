@@ -7,7 +7,7 @@ type TreeNode struct {
 }
 
 func postorderTraversal(root *TreeNode) []int {
-    res := make([]int, 0)
+	res := make([]int, 0)
 
 	return traversal(root, res)
 }

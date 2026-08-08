@@ -9,46 +9,46 @@ public:
 
     void push(int x)
     {
-        _in.push(x);
+        inputStack_.push(x);
     }
 
     int pop()
     {
-        if (_out.empty())
+        if (outputStack_.empty())
         {
-            while (!_in.empty())
+            while (!inputStack_.empty())
             {
-                _out.push(_in.top());
-                _in.pop();
+                outputStack_.push(inputStack_.top());
+                inputStack_.pop();
             }
         }
 
-        int v = _out.top();
-        _out.pop();
+        int v = outputStack_.top();
+        outputStack_.pop();
 
         return v;
     }
 
     int peek()
     {
-        if (_out.empty())
+        if (outputStack_.empty())
         {
-            while (!_in.empty())
+            while (!inputStack_.empty())
             {
-                _out.push(_in.top());
-                _in.pop();
+                outputStack_.push(inputStack_.top());
+                inputStack_.pop();
             }
         }
 
-        return _out.top();
+        return outputStack_.top();
     }
 
     bool empty()
     {
-        return _in.empty() && _out.empty();
+        return inputStack_.empty() && outputStack_.empty();
     }
 
 private:
-    std::stack<int> _in;
-    std::stack<int> _out;
+    std::stack<int> inputStack_;
+    std::stack<int> outputStack_;
 };

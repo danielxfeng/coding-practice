@@ -9,15 +9,15 @@ class ListNode {
 }
 
 const getIntersectionNode = (headA: ListNode | null, headB: ListNode | null): ListNode | null => {
-    const s = new Set<ListNode | null>()
+    const nodesFromFirstList = new Set<ListNode | null>()
 
     while (headA !== null) {
-        s.add(headA)
+        nodesFromFirstList.add(headA)
         headA = headA.next
     }
 
     while (headB !== null) {
-        if (s.has(headB)) return headB
+        if (nodesFromFirstList.has(headB)) return headB
         headB = headB.next
     }
 

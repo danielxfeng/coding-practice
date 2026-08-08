@@ -4,12 +4,12 @@ const twoSum = (nums: number[], target: number): number[] => {
 
 // N, N
 const twoSumOptimized = (nums: number[], target: number): number[] => {
-    const m = new Map<number, number>();
+    const indexByValue = new Map<number, number>();
 
     for (let i = 0; i < nums.length; i++) {
-        const idx = m.get(target - nums[i]);
+        const idx = indexByValue.get(target - nums[i]);
         if (idx !== undefined) return [idx, i];
-        m.set(nums[i], i);
+        indexByValue.set(nums[i], i);
     }
 
     return [];

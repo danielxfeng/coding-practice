@@ -1,16 +1,16 @@
 const topKFrequent = (nums: number[], k: number): number[] => {
-    const map = new Map<number, number>()
+    const frequencyByNumber = new Map<number, number>()
 
-    for (const n of nums) map.set(n, (map.get(n) ?? 0) + 1)
+    for (const n of nums) frequencyByNumber.set(n, (frequencyByNumber.get(n) ?? 0) + 1)
 
-    const items: { k: number, c: number }[] = Array()
+    const frequencyEntries: { k: number, c: number }[] = Array()
 
-    for (const [k, c] of map)
-        items.push({ k: k, c: c })
+    for (const [k, c] of frequencyByNumber)
+        frequencyEntries.push({ k: k, c: c })
 
-    items.sort((a, b) => b.c - a.c)
+    frequencyEntries.sort((a, b) => b.c - a.c)
 
-    return items.slice(0, k).map(item => item.k)
+    return frequencyEntries.slice(0, k).map(entry => entry.k)
 };
 
 export default topKFrequent

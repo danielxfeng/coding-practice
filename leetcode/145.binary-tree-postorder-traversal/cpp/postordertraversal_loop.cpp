@@ -18,24 +18,24 @@ public:
     std::vector<int> postorderTraversal(TreeNode *root)
     {
         std::vector<int> res;
-        std::deque<TreeNode *> deque;
+        std::deque<TreeNode *> nodeStack;
 
         if (root == nullptr)
             return res;
 
-        deque.push_back(root);
+        nodeStack.push_back(root);
 
-        while (!deque.empty())
+        while (!nodeStack.empty())
         {
-            auto *curr = deque.back();
-            deque.pop_back();
+            auto *curr = nodeStack.back();
+            nodeStack.pop_back();
 
             res.push_back(curr->val);
             if (curr->left != nullptr)
-                deque.push_back(curr->left);
+                nodeStack.push_back(curr->left);
 
             if (curr->right != nullptr)
-                deque.push_back(curr->right);
+                nodeStack.push_back(curr->right);
         }
 
         std::reverse(res.begin(), res.end());

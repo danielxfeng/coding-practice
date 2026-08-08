@@ -2,6 +2,7 @@ package topk
 
 import (
 	"reflect"
+	"sort"
 	"testing"
 )
 
@@ -21,6 +22,8 @@ func TestTopK(t *testing.T) {
 	for _, tc := range tcs {
 		t.Run("topk", func(t *testing.T) {
 			got := topKFrequent(tc.nums, tc.k)
+			sort.Ints(got)
+			sort.Ints(tc.want)
 
 			if !reflect.DeepEqual(tc.want, got) {
 				t.Fatalf("topk, want: %v, got: %v", tc.want, got)
