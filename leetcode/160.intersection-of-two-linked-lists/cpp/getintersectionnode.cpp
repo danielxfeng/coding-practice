@@ -12,17 +12,17 @@ class Solution
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
     {
-        std::unordered_set<ListNode *> s;
+        std::unordered_set<ListNode *> nodesInFirstList;
 
         while (headA != nullptr)
         {
-            s.emplace(headA);
+            nodesInFirstList.emplace(headA);
             headA = headA->next;
         }
 
         while (headB != nullptr)
         {
-            if (s.find(headB) != s.end())
+            if (nodesInFirstList.find(headB) != nodesInFirstList.end())
                 return headB;
             headB = headB->next;
         }

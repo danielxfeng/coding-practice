@@ -6,17 +6,17 @@ class Solution
 public:
     std::vector<int> intersection(std::vector<int> &nums1, std::vector<int> &nums2)
     {
-        std::unordered_set<int> s;
+        std::unordered_set<int> valuesInFirstArray;
         std::vector<int> res;
 
         for (const int n : nums1)
-            s.emplace(n);
+            valuesInFirstArray.emplace(n);
 
         for (const int n : nums2)
         {
-            if (s.find(n) != s.end())
+            if (valuesInFirstArray.find(n) != valuesInFirstArray.end())
             {
-                s.erase(n);
+                valuesInFirstArray.erase(n);
                 res.push_back(n);
             }
         }

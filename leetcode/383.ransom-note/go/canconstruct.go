@@ -2,18 +2,18 @@ package canconstruct
 
 // M+N, 1
 func canConstruct(ransomNote string, magazine string) bool {
-	m := make([]int, 26)
+	characterCounts := make([]int, 26)
 
 	for _, ch := range ransomNote {
-		m[dist(ch)]++
+		characterCounts[dist(ch)]++
 	}
 
 	for _, ch := range magazine {
-		m[dist(ch)]--
+		characterCounts[dist(ch)]--
 	}
 
 	for i := range 26 {
-		if m[i] > 0 {
+		if characterCounts[i] > 0 {
 			return false
 		}
 	}

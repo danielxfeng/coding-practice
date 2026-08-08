@@ -19,8 +19,8 @@ const getDepth = (root: _Node | null, depth: number): number => {
     depth++
     let maxDepth = depth
 
-    for (const n of root.children) {
-        const localDepth = getDepth(n, depth)
+    for (const child of root.children) {
+        const localDepth = getDepth(child, depth)
         if (localDepth > maxDepth) maxDepth = localDepth
     }
 

@@ -6,14 +6,14 @@ func twoSum(nums []int, target int) []int {
 
 // N, N
 func twoSumOptimized(nums []int, target int) []int {
-	m := make(map[int]int, len(nums))
+	indexByValue := make(map[int]int, len(nums))
 
 	for i, v := range nums {
 		expected := target - v
-		if index, ok := m[expected]; ok {
+		if index, ok := indexByValue[expected]; ok {
 			return []int{index, i}
 		}
-		m[v] = i;
+		indexByValue[v] = i
 	}
 
 	return []int{}

@@ -17,27 +17,27 @@ public:
     std::vector<std::vector<int>> levelOrder(TreeNode *root)
     {
         std::vector<std::vector<int>> res;
-        std::deque<TreeNode *> deque;
+        std::deque<TreeNode *> nodeQueue;
 
         if (root != nullptr)
-            deque.push_back(root);
+            nodeQueue.push_back(root);
 
-        while (!deque.empty())
+        while (!nodeQueue.empty())
         {
-            const int size = deque.size();
+            const int size = nodeQueue.size();
             std::vector<int> layer(size);
 
             for (int i = 0; i < size; ++i)
             {
-                auto curr = deque.front();
-                deque.pop_front();
+                auto curr = nodeQueue.front();
+                nodeQueue.pop_front();
 
                 layer[i] = curr->val;
 
                 if (curr->left != nullptr)
-                    deque.push_back(curr->left);
+                    nodeQueue.push_back(curr->left);
                 if (curr->right != nullptr)
-                    deque.push_back(curr->right);
+                    nodeQueue.push_back(curr->right);
             }
 
             res.push_back(layer);

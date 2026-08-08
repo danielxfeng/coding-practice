@@ -27,28 +27,28 @@ public:
     std::vector<std::vector<int>> levelOrder(Node *root)
     {
         std::vector<std::vector<int>> res;
-        std::deque<Node *> deque;
+        std::deque<Node *> nodeQueue;
 
         if (root != nullptr)
-            deque.push_back(root);
+            nodeQueue.push_back(root);
 
-        while (!deque.empty())
+        while (!nodeQueue.empty())
         {
-            int size = deque.size();
+            int size = nodeQueue.size();
 
             std::vector<int> layer(size);
 
             for (int i = 0; i < size; ++i)
             {
-                auto curr = deque.front();
-                deque.pop_front();
+                auto curr = nodeQueue.front();
+                nodeQueue.pop_front();
 
                 layer[i] = curr->val;
 
                 for (auto n : curr->children)
                 {
                     if (n != nullptr)
-                        deque.push_back(n);
+                        nodeQueue.push_back(n);
                 }
             }
 

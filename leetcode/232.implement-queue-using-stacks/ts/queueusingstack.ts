@@ -1,42 +1,42 @@
 class MyQueue {
-    private in: number[]
-    private out: number[]
+    private incomingStack: number[]
+    private outgoingStack: number[]
 
     constructor() {
-        this.in = [];
-        this.out = [];
+        this.incomingStack = [];
+        this.outgoingStack = [];
     }
 
     push(x: number): void {
-        this.in.push(x)
+        this.incomingStack.push(x)
     }
 
     pop(): number {
-        if (this.out.length === 0) {
-            while (this.in.length > 0) {
-                const v = this.in.pop()
-                this.out.push(v!)
+        if (this.outgoingStack.length === 0) {
+            while (this.incomingStack.length > 0) {
+                const v = this.incomingStack.pop()
+                this.outgoingStack.push(v!)
             }
         }
 
-        return this.out.pop()!
+        return this.outgoingStack.pop()!
     }
 
     peek(): number {
-        if (this.out.length === 0) {
-            while (this.in.length > 0) {
-                const v = this.in.pop()
-                this.out.push(v!)
+        if (this.outgoingStack.length === 0) {
+            while (this.incomingStack.length > 0) {
+                const v = this.incomingStack.pop()
+                this.outgoingStack.push(v!)
             }
         }
 
-        const v = this.out.pop()!
-        this.out.push(v)
+        const v = this.outgoingStack.pop()!
+        this.outgoingStack.push(v)
 
         return v
     }
 
     empty(): boolean {
-        return this.in.length === 0 && this.out.length === 0
+        return this.incomingStack.length === 0 && this.outgoingStack.length === 0
     }
 }

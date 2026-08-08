@@ -8,15 +8,15 @@ type pair struct {
 }
 
 func topKFrequent(nums []int, k int) []int {
-	m := make(map[int]int)
+	frequencyByValue := make(map[int]int)
 
 	for _, n := range nums {
-		m[n]++
+		frequencyByValue[n]++
 	}
 
-	items := make([]pair, 0, len(m))
+	items := make([]pair, 0, len(frequencyByValue))
 
-	for k, v := range m {
+	for k, v := range frequencyByValue {
 		items = append(items, pair{k, v})
 	}
 

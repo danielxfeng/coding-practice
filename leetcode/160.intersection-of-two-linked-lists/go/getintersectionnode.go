@@ -7,15 +7,15 @@ type ListNode struct {
 
 // M+N, M
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	s := make(map[*ListNode]struct{})
+	nodesInFirstList := make(map[*ListNode]struct{})
 
 	for headA != nil {
-		s[headA] = struct{}{}
+		nodesInFirstList[headA] = struct{}{}
 		headA = headA.Next
 	}
 
 	for headB != nil {
-		if _, exist := s[headB]; exist {
+		if _, exist := nodesInFirstList[headB]; exist {
 			return headB
 		}
 		headB = headB.Next

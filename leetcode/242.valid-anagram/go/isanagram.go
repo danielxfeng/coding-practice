@@ -10,17 +10,17 @@ func isAnagramArray(s string, t string) bool {
 		return false
 	}
 
-	arr := make([]int, 26)
+	characterCounts := make([]int, 26)
 
 	for _, ch := range s {
-		arr[dist(ch)]++
+		characterCounts[dist(ch)]++
 	}
 
 	for _, ch := range t {
 		i := dist(ch)
 
-		arr[i]--
-		if arr[i] < 0 {
+		characterCounts[i]--
+		if characterCounts[i] < 0 {
 			return false
 		}
 	}
@@ -37,16 +37,16 @@ func isAnagramBasic(s string, t string) bool {
 		return false
 	}
 
-	m := make(map[rune]int, 26)
+	characterCounts := make(map[rune]int, 26)
 
 	for _, ch := range s {
-		m[ch]++
+		characterCounts[ch]++
 	}
 
 	for _, ch := range t {
-		m[ch]--
+		characterCounts[ch]--
 
-		if m[ch] < 0 {
+		if characterCounts[ch] < 0 {
 			return false
 		}
 	}

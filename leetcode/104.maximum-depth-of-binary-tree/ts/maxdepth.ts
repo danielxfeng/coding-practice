@@ -10,21 +10,21 @@ class TreeNode {
 }
 
 function maxDepth(root: TreeNode | null): number {
-    const deque: TreeNode[] = []
+    const queue: TreeNode[] = []
     let front = 0
     let depth = 0
 
-    if (root !== null) deque.push(root)
+    if (root !== null) queue.push(root)
 
-    while (deque.length > front) {
-        const size = deque.length - front
+    while (queue.length > front) {
+        const size = queue.length - front
         depth++
 
         for (let i = 0; i < size; i++) {
-            const curr = deque[front++]
+            const curr = queue[front++]
 
-            if (curr.left !== null) deque.push(curr.left)
-            if (curr.right !== null) deque.push(curr.right)
+            if (curr.left !== null) queue.push(curr.left)
+            if (curr.right !== null) queue.push(curr.right)
         }
     }
 

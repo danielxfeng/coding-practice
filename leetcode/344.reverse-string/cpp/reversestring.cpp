@@ -3,13 +3,13 @@
 class Solution
 {
 public:
-    void reverseString(std::vector<char> &s)
+    void reverseString(std::vector<char> &characters)
     {
-        if (s.empty())
+        if (characters.empty())
             return;
 
-        auto itStart = s.begin();
-        auto itEnd = s.end() - 1;
+        auto itStart = characters.begin();
+        auto itEnd = characters.end() - 1;
 
         while (itStart < itEnd)
         {

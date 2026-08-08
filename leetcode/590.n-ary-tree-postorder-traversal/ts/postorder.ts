@@ -16,8 +16,8 @@ const postorder = (root: _Node | null): number[] => {
 const travelsal = (root: _Node | null, res: number[]) => {
     if (root === null) return
 
-    for (const n of root.children)
-        travelsal(n, res)
+    for (const child of root.children)
+        travelsal(child, res)
 
     res.push(root.val)
 

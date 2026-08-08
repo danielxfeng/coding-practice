@@ -11,21 +11,21 @@ class TreeNode {
 
 const rightSideView = (root: TreeNode | null): number[] => {
     const res: number[] = []
-    const deque: TreeNode[] = []
+    const queue: TreeNode[] = []
     let front = 0
 
-    if (root !== null) deque.push(root)
+    if (root !== null) queue.push(root)
 
-    while (deque.length > front) {
-        const size = deque.length - front
+    while (queue.length > front) {
+        const size = queue.length - front
 
         for (let i = 0; i < size; i++) {
-            const curr = deque[front++]
+            const curr = queue[front++]
 
             if (i == size - 1) res.push(curr.val)
 
-            if (curr.left !== null) deque.push(curr.left)
-            if (curr.right !== null) deque.push(curr.right)
+            if (curr.left !== null) queue.push(curr.left)
+            if (curr.right !== null) queue.push(curr.right)
         }
     }
 

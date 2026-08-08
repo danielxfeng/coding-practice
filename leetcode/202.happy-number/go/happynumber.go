@@ -1,7 +1,7 @@
 package happynumber
 
 func isHappy(n int) bool {
-	s := make(map[int]struct{})
+	seenNumbers := make(map[int]struct{})
 
 	for {
 		n = sumSquares(n)
@@ -10,11 +10,11 @@ func isHappy(n int) bool {
 			return true
 		}
 
-		if _, exists := s[n]; exists {
+		if _, exists := seenNumbers[n]; exists {
 			return false
 		}
 
-		s[n] = struct{}{}
+		seenNumbers[n] = struct{}{}
 	}
 }
 

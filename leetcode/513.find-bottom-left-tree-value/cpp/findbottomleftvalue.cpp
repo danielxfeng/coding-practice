@@ -15,29 +15,29 @@ class Solution
 public:
     int findBottomLeftValue(TreeNode *root)
     {
-        std::deque<TreeNode *> deque;
+        std::deque<TreeNode *> nodeQueue;
         int res = 0;
 
         if (root != nullptr)
-            deque.push_back(root);
+            nodeQueue.push_back(root);
 
-        while (!deque.empty())
+        while (!nodeQueue.empty())
         {
-            int size = deque.size();
+            int size = nodeQueue.size();
 
             for (int i = 0; i < size; i++)
             {
-                auto curr = deque.front();
-                deque.pop_front();
+                auto curr = nodeQueue.front();
+                nodeQueue.pop_front();
 
                 if (i == 0)
                     res = curr->val;
 
                 if (curr->left != nullptr)
-                    deque.push_back(curr->left);
+                    nodeQueue.push_back(curr->left);
 
                 if (curr->right != nullptr)
-                    deque.push_back(curr->right);
+                    nodeQueue.push_back(curr->right);
             }
         }
 

@@ -9,26 +9,26 @@ type TreeNode struct {
 }
 
 func maxDepth(root *TreeNode) int {
-	deque := list.New()
+	queue := list.New()
 	depth := 0
 
 	if root != nil {
-		deque.PushBack(root)
+		queue.PushBack(root)
 	}
 
-	for deque.Len() > 0 {
-		size := deque.Len()
+	for queue.Len() > 0 {
+		size := queue.Len()
 		depth++
 
 		for range size {
-			curr := deque.Remove(deque.Front()).(*TreeNode)
+			curr := queue.Remove(queue.Front()).(*TreeNode)
 
 			if curr.Left != nil {
-				deque.PushBack(curr.Left)
+				queue.PushBack(curr.Left)
 			}
 
 			if curr.Right != nil {
-				deque.PushBack(curr.Right)
+				queue.PushBack(curr.Right)
 			}
 		}
 	}

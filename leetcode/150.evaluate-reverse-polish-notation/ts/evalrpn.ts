@@ -1,22 +1,22 @@
-const popStack = (arr: number[]): number[] => {
-    if (arr.length === 0) return arr
+const popStack = (stack: number[]): number[] => {
+    if (stack.length === 0) return stack
 
-    return arr.slice(0, arr.length - 1)
+    return stack.slice(0, stack.length - 1)
 }
 
-const peekStack = (arr: number[]): number | null => {
-    if (arr.length === 0) return null
+const peekStack = (stack: number[]): number | null => {
+    if (stack.length === 0) return null
 
-    return arr[arr.length - 1]
+    return stack[stack.length - 1]
 }
 
-const pushStack = (arr: number[], v: number): number[] => {
-    arr.push(v)
-    return arr
+const pushStack = (stack: number[], v: number): number[] => {
+    stack.push(v)
+    return stack
 }
 
-const isEmptyStack = (arr: number[]): boolean => {
-    return arr.length === 0
+const isEmptyStack = (stack: number[]): boolean => {
+    return stack.length === 0
 }
 
 const evalRPN = (tokens: string[]): number => {

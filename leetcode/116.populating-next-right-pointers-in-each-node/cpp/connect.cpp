@@ -21,29 +21,29 @@ class Solution
 public:
     Node *connect(Node *root)
     {
-        std::deque<Node *> deque;
+        std::deque<Node *> nodeQueue;
 
         if (root != nullptr)
-            deque.push_back(root);
+            nodeQueue.push_back(root);
 
-        while (!deque.empty())
+        while (!nodeQueue.empty())
         {
-            int size = deque.size();
+            int size = nodeQueue.size();
 
             Node *prev;
             for (int i = 0; i < size; i++)
             {
-                auto curr = deque.front();
-                deque.pop_front();
+                auto curr = nodeQueue.front();
+                nodeQueue.pop_front();
 
                 if (i > 0)
                     prev->next = curr;
                 prev = curr;
 
                 if (curr->left != nullptr)
-                    deque.push_back(curr->left);
+                    nodeQueue.push_back(curr->left);
                 if (curr->right != nullptr)
-                    deque.push_back(curr->right);
+                    nodeQueue.push_back(curr->right);
             }
         }
 

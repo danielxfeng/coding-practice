@@ -17,23 +17,23 @@ public:
     std::vector<int> inorderTraversal(TreeNode *root)
     {
         std::vector<int> res;
-        std::deque<TreeNode *> deque;
+        std::deque<TreeNode *> nodeStack;
 
         if (root == nullptr)
             return res;
 
         auto curr = root;
-        while (curr != nullptr || !deque.empty())
+        while (curr != nullptr || !nodeStack.empty())
         {
             if (curr != nullptr)
             {
-                deque.push_back(curr);
+                nodeStack.push_back(curr);
                 curr = curr->left;
                 continue;
             }
 
-            curr = deque.back();
-            deque.pop_back();
+            curr = nodeStack.back();
+            nodeStack.pop_back();
             res.push_back(curr->val);
             curr = curr->right;
         }

@@ -5,7 +5,7 @@ class Solution
 public:
     bool isHappy(int n)
     {
-        std::unordered_set<int> s;
+        std::unordered_set<int> seenNumbers;
 
         while (true)
         {
@@ -14,10 +14,10 @@ public:
             if (n == 1)
                 return true;
 
-            if (s.find(n) != s.end())
+            if (seenNumbers.find(n) != seenNumbers.end())
                 return false;
 
-            s.emplace(n);
+            seenNumbers.emplace(n);
         }
     }
 

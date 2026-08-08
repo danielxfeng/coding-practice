@@ -1,22 +1,22 @@
-const popStack = (arr: string[]): string[] => {
-    if (arr.length === 0) return arr
+const popStack = (stack: string[]): string[] => {
+    if (stack.length === 0) return stack
 
-    return arr.slice(0, arr.length - 1)
+    return stack.slice(0, stack.length - 1)
 }
 
-const peekStack = (arr: string[]): string | null => {
-    if (arr.length === 0) return null
+const peekStack = (stack: string[]): string | null => {
+    if (stack.length === 0) return null
 
-    return arr[arr.length - 1]
+    return stack[stack.length - 1]
 }
 
-const pushStack = (arr: string[], v: string): string[] => {
-    arr.push(v)
-    return arr
+const pushStack = (stack: string[], v: string): string[] => {
+    stack.push(v)
+    return stack
 }
 
-const isEmptyStack = (arr: string[]): boolean => {
-    return arr.length === 0
+const isEmptyStack = (stack: string[]): boolean => {
+    return stack.length === 0
 }
 
 const removeDuplicates = (s: string): string => {
