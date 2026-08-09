@@ -26,13 +26,13 @@ public:
     std::vector<int> preorder(Node *root)
     {
         std::vector<int> res;
-        travelsal(root, res);
+        traversal(root, res);
 
         return res;
     }
 
 private:
-    void travelsal(Node *root, std::vector<int> &res)
+    void traversal(Node *root, std::vector<int> &res)
     {
         if (root == nullptr)
             return;
@@ -40,6 +40,6 @@ private:
         res.push_back(root->val);
 
         for (auto n : root->children)
-            travelsal(n, res);
+            traversal(n, res);
     }
 };

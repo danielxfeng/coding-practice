@@ -8,11 +8,11 @@ type TreeNode struct {
 
 func constructMaximumBinaryTree(nums []int) *TreeNode {
 	prev := TreeNode{}
-	travelsal(nums, &prev, true, 0, len(nums))
+	traversal(nums, &prev, true, 0, len(nums))
 	return prev.Left
 }
 
-func travelsal(nums []int, prev *TreeNode, isLeft bool, left int, right int) {
+func traversal(nums []int, prev *TreeNode, isLeft bool, left int, right int) {
 	maxIdx, ok := findMaxNum(nums, left, right)
 	if !ok {
 		return
@@ -26,8 +26,8 @@ func travelsal(nums []int, prev *TreeNode, isLeft bool, left int, right int) {
 		prev.Right = &maxNode
 	}
 
-	travelsal(nums, &maxNode, true, left, maxIdx)
-	travelsal(nums, &maxNode, false, maxIdx+1, right)
+	traversal(nums, &maxNode, true, left, maxIdx)
+	traversal(nums, &maxNode, false, maxIdx+1, right)
 }
 
 func findMaxNum(nums []int, left int, right int) (int, bool) {

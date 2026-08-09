@@ -15,11 +15,11 @@ class Solution
 public:
     std::vector<std::vector<int>> pathSum(TreeNode *root, int targetSum)
     {
-        return travelsal(root, targetSum, {}, 0);
+        return traversal(root, targetSum, {}, 0);
     }
 
 private:
-    std::vector<std::vector<int>> travelsal(TreeNode *root, int targetSum, std::vector<int> path, int sum)
+    std::vector<std::vector<int>> traversal(TreeNode *root, int targetSum, std::vector<int> path, int sum)
     {
         if (root == nullptr)
             return {};
@@ -31,12 +31,12 @@ private:
             if (targetSum != sum)
                 return {};
 
-            return { path };
+            return {path};
         }
 
         std::vector<std::vector<int>> res;
-        auto resLeft = travelsal(root->left, targetSum, path, sum);
-        auto resRight = travelsal(root->right, targetSum, path, sum);
+        auto resLeft = traversal(root->left, targetSum, path, sum);
+        auto resRight = traversal(root->right, targetSum, path, sum);
         res.insert(res.end(), resLeft.begin(), resLeft.end());
         res.insert(res.end(), resRight.begin(), resRight.end());
 

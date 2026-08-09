@@ -16,11 +16,11 @@ class Solution
 public:
     std::vector<std::string> binaryTreePaths(TreeNode *root)
     {
-        return travelsal(root, "");
+        return traversal(root, "");
     }
 
 private:
-    std::vector<std::string> travelsal(TreeNode *root, std::string path)
+    std::vector<std::string> traversal(TreeNode *root, std::string path)
     {
         if (root == nullptr)
             return {};
@@ -36,8 +36,8 @@ private:
 
         std::vector<std::string> res;
 
-        auto left = travelsal(root->left, path);
-        auto right = travelsal(root->right, path);
+        auto left = traversal(root->left, path);
+        auto right = traversal(root->right, path);
 
         res.insert(res.end(), left.begin(), left.end());
         res.insert(res.end(), right.begin(), right.end());

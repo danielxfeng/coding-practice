@@ -7,10 +7,10 @@ type TreeNode struct {
 }
 
 func hasPathSum(root *TreeNode, targetSum int) bool {
-	return travelsal(root, targetSum, 0)
+	return traversal(root, targetSum, 0)
 }
 
-func travelsal(root *TreeNode, targetSum int, pathSum int) bool {
+func traversal(root *TreeNode, targetSum int, pathSum int) bool {
 	if root == nil {
 		return false
 	}
@@ -21,9 +21,9 @@ func travelsal(root *TreeNode, targetSum int, pathSum int) bool {
 		return targetSum == pathSum
 	}
 
-	if travelsal(root.Left, targetSum, pathSum) {
+	if traversal(root.Left, targetSum, pathSum) {
 		return true
 	}
 
-	return travelsal(root.Right, targetSum, pathSum)
+	return traversal(root.Right, targetSum, pathSum)
 }

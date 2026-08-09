@@ -7,10 +7,10 @@ type TreeNode struct {
 }
 
 func sumOfLeftLeaves(root *TreeNode) int {
-	return travelsal(root, false)
+	return traversal(root, false)
 }
 
-func travelsal(root *TreeNode, isLeft bool) int {
+func traversal(root *TreeNode, isLeft bool) int {
 	if root == nil {
 		return 0
 	}
@@ -19,5 +19,5 @@ func travelsal(root *TreeNode, isLeft bool) int {
 		return root.Val
 	}
 
-	return travelsal(root.Left, true) + travelsal(root.Right, false)
+	return traversal(root.Left, true) + traversal(root.Right, false)
 }

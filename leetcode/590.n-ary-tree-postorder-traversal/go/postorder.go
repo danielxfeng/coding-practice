@@ -7,16 +7,16 @@ type Node struct {
 
 func postorder(root *Node) []int {
 	res := make([]int, 0)
-	return travelsal(root, res)
+	return traversal(root, res)
 }
 
-func travelsal(root *Node, res []int) []int {
+func traversal(root *Node, res []int) []int {
 	if root == nil {
 		return res
 	}
 
 	for _, n := range root.Children {
-		res = travelsal(n, res)
+		res = traversal(n, res)
 	}
 
 	res = append(res, root.Val)
