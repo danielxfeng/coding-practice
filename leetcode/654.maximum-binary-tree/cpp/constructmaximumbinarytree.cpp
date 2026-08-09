@@ -17,12 +17,12 @@ public:
     TreeNode *constructMaximumBinaryTree(std::vector<int> &nums)
     {
         auto prev = TreeNode();
-        travelsal(nums, &prev, true, 0, nums.size());
+        traversal(nums, &prev, true, 0, nums.size());
         return prev.left;
     }
 
 private:
-    void travelsal(std::vector<int> &nums, TreeNode *prev, bool isLeft, int left, int right)
+    void traversal(std::vector<int> &nums, TreeNode *prev, bool isLeft, int left, int right)
     {
         auto maxIdx = findMaxIdx(nums, left, right);
         if (maxIdx == -1)
@@ -34,8 +34,8 @@ private:
         else
             prev->right = node;
 
-        travelsal(nums, node, true, left, maxIdx);
-        travelsal(nums, node, false, maxIdx + 1, right);
+        traversal(nums, node, true, left, maxIdx);
+        traversal(nums, node, false, maxIdx + 1, right);
     }
 
     int findMaxIdx(std::vector<int> &nums, int left, int right)

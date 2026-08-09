@@ -20,12 +20,12 @@ public:
             return nullptr;
 
         auto prev = TreeNode();
-        travelsal(inorder, 0, inorder.size(), postorder, 0, postorder.size(), &prev, true);
+        traversal(inorder, 0, inorder.size(), postorder, 0, postorder.size(), &prev, true);
         return prev.left;
     }
 
 private:
-    void travelsal(std::vector<int> &inorder, int inLeft, int inRight, std::vector<int> &postorder, int postLeft, int postRight, TreeNode *prev, bool isLeft)
+    void traversal(std::vector<int> &inorder, int inLeft, int inRight, std::vector<int> &postorder, int postLeft, int postRight, TreeNode *prev, bool isLeft)
     {
         if (inLeft >= inRight)
             return;
@@ -42,8 +42,8 @@ private:
         auto leftLen = splitIdx - inLeft;
         postRight--;
 
-        travelsal(inorder, inLeft, splitIdx, postorder, postLeft, postLeft + leftLen, root, true);
-        travelsal(inorder, splitIdx + 1, inRight, postorder, postLeft + leftLen, postRight, root, false);
+        traversal(inorder, inLeft, splitIdx, postorder, postLeft, postLeft + leftLen, root, true);
+        traversal(inorder, splitIdx + 1, inRight, postorder, postLeft + leftLen, postRight, root, false);
     }
 
     int findIdx(std::vector<int> nums, int left, int right, int target)
