@@ -12,11 +12,11 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 	}
 
 	prev := TreeNode{}
-	travelsal(inorder, 0, len(inorder), postorder, 0, len(postorder), &prev, false)
+	traversal(inorder, 0, len(inorder), postorder, 0, len(postorder), &prev, false)
 	return prev.Right
 }
 
-func travelsal(inorder []int, inLeft int, inRight int, postorder []int, postLeft int, postRight int, prev *TreeNode, isLeft bool) {
+func traversal(inorder []int, inLeft int, inRight int, postorder []int, postLeft int, postRight int, prev *TreeNode, isLeft bool) {
 	if inLeft >= inRight {
 		return
 	}
@@ -33,8 +33,8 @@ func travelsal(inorder []int, inLeft int, inRight int, postorder []int, postLeft
 	leftSize := splitIdx - inLeft
 	postRight--
 
-	travelsal(inorder, inLeft, splitIdx, postorder, postLeft, postLeft+leftSize, root, true)
-	travelsal(inorder, splitIdx+1, inRight, postorder, postLeft+leftSize, postRight, root, false)
+	traversal(inorder, inLeft, splitIdx, postorder, postLeft, postLeft+leftSize, root, true)
+	traversal(inorder, splitIdx+1, inRight, postorder, postLeft+leftSize, postRight, root, false)
 }
 
 func findIdx(nums []int, left int, right int, target int) int {

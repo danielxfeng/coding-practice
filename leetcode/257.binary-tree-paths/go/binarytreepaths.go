@@ -11,10 +11,10 @@ type TreeNode struct {
 }
 
 func binaryTreePaths(root *TreeNode) []string {
-	return travelsal(root, "")
+	return traversal(root, "")
 }
 
-func travelsal(root *TreeNode, path string) []string {
+func traversal(root *TreeNode, path string) []string {
 	if root == nil {
 		return nil
 	}
@@ -32,8 +32,8 @@ func travelsal(root *TreeNode, path string) []string {
 
 	res := []string{}
 
-	res = append(res, travelsal(root.Left, path)...)
-	res = append(res, travelsal(root.Right, path)...)
+	res = append(res, traversal(root.Left, path)...)
+	res = append(res, traversal(root.Right, path)...)
 
 	return res
 }

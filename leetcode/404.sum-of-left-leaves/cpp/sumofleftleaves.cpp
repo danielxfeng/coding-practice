@@ -13,11 +13,11 @@ class Solution
 public:
     int sumOfLeftLeaves(TreeNode *root)
     {
-        return travelsal(root, false);
+        return traversal(root, false);
     }
 
 private:
-    int travelsal(TreeNode *root, bool isLeft)
+    int traversal(TreeNode *root, bool isLeft)
     {
         if (root == nullptr)
             return 0;
@@ -25,6 +25,6 @@ private:
         if (isLeft && root->left == nullptr && root->right == nullptr)
             return root->val;
 
-        return travelsal(root->left, true) + travelsal(root->right, false);
+        return traversal(root->left, true) + traversal(root->right, false);
     }
 };

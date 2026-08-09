@@ -10,18 +10,18 @@ class _Node {
 
 const preorder = (root: _Node | null): number[] => {
     const res: number[] = []
-    travelsal(root, res)
+    traversal(root, res)
 
     return res
 }
 
-const travelsal = (root: _Node | null, res: number[]) => {
+const traversal = (root: _Node | null, res: number[]) => {
     if (root === null) return
 
     res.push(root.val)
 
     for (const child of root.children) {
-        travelsal(child, res)
+        traversal(child, res)
     }
 }
 

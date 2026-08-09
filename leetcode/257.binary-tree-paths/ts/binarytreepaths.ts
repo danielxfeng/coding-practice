@@ -10,10 +10,10 @@ class TreeNode {
 }
 
 const binaryTreePaths = (root: TreeNode | null): string[] => {
-    return travelsal(root, "")
+    return traversal(root, "")
 }
 
-const travelsal = (root: TreeNode | null, path: string): string[] => {
+const traversal = (root: TreeNode | null, path: string): string[] => {
     if (root === null) return []
 
     const val = root.val.toString()
@@ -23,8 +23,8 @@ const travelsal = (root: TreeNode | null, path: string): string[] => {
     if (root.left === null && root.right === null) return [path]
 
     const res: string[] = []
-    res.push(...travelsal(root.left, path))
-    res.push(...travelsal(root.right, path))
+    res.push(...traversal(root.left, path))
+    res.push(...traversal(root.right, path))
 
     return res
 }
