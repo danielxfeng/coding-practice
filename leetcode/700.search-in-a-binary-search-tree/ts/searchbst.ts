@@ -1,5 +1,3 @@
-import search from "../../704.binary-search/ts/binarysearch.js"
-
 class TreeNode {
     val: number
     left: TreeNode | null
