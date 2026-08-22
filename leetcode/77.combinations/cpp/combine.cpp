@@ -5,7 +5,7 @@ class Solution
 public:
     std::vector<std::vector<int>> combine(int n, int k)
     {
-        backtrace(n, k, 1);
+        backtrack(n, k, 1);
         return res_;
     }
 
@@ -13,7 +13,7 @@ private:
     std::vector<std::vector<int>> res_{};
     std::vector<int> path_{};
 
-    void backtrace(int n, int k, int s)
+    void backtrack(int n, int k, int s)
     {
         if (path_.size() == k)
         {
@@ -27,7 +27,7 @@ private:
                 break;
 
             path_.push_back(i);
-            backtrace(n, k, i + 1);
+            backtrack(n, k, i + 1);
             path_.pop_back();
         }
     }
