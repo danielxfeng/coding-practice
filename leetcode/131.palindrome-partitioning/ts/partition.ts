@@ -2,7 +2,7 @@ const partition = (s: string): string[][] => {
     const res: string[][] = []
     const path: string[] = []
 
-    const backtrace = (start: number) => {
+    const backtrack = (start: number) => {
         if (start === s.length) {
             res.push([...path])
             return
@@ -12,12 +12,12 @@ const partition = (s: string): string[][] => {
             if (!isPalindrome(s, start, i)) continue
 
             path.push(s.slice(start, i + 1))
-            backtrace(i + 1)
+            backtrack(i + 1)
             path.pop()
         }
     }
 
-    backtrace(0)
+    backtrack(0)
     return res
 }
 

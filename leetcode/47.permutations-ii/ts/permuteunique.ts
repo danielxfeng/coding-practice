@@ -1,7 +1,7 @@
 const permuteUnique = (nums: number[]): number[][] => {
     const res: number[][] = []
 
-    const backtrace = (start: number) => {
+    const backtrack = (start: number) => {
         if (start === nums.length) {
             res.push([...nums])
         }
@@ -14,12 +14,12 @@ const permuteUnique = (nums: number[]): number[][] => {
             used.add(nums[i])
 
             swap(nums, start, i)
-            backtrace(start + 1)
+            backtrack(start + 1)
             swap(nums, start, i)
         }
     }
 
-    backtrace(0)
+    backtrack(0)
     return res
 }
 

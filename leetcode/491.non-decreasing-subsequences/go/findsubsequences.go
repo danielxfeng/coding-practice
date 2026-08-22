@@ -4,9 +4,9 @@ func findSubsequences(nums []int) [][]int {
 	res := make([][]int, 0)
 	path := make([]int, 0)
 
-	var backtrace func(int)
+	var backtrack func(int)
 
-	backtrace = func(start int) {
+	backtrack = func(start int) {
 		if len(path) > 1 {
 			tmp := make([]int, len(path))
 			copy(tmp, path)
@@ -27,11 +27,11 @@ func findSubsequences(nums []int) [][]int {
 			used[nums[i]] = struct{}{}
 
 			path = append(path, nums[i])
-			backtrace(i + 1)
+			backtrack(i + 1)
 			path = path[:len(path)-1]
 		}
 	}
 
-	backtrace(0)
+	backtrack(0)
 	return res
 }
